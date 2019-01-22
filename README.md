@@ -1,10 +1,10 @@
-BEBOX-BOARDS
+#BEBOX-BOARDS
 
 BeBox is a collection of tools used to control and measure animal behavior. It includes four parts: finished 3d designs, the code used to generate them, the Arduino code necessary to run, and a set of PCB files.
 
-3d designs:
+##3d designs:
 
-wheel
+###wheel
 - wheel.stl  a pre-made file that can be printed on an average FDM printer with minimal layer heights. This requires two M4 nuts to be embedded and two M4x10 bolts to pinch the axles
 - wheel axle.stl  a pre-made file of a short axle piece used to attach the wheel to the wheel holder. 2 are required
 - wheel holder.stl  a pre-made file of a suspension system for the wheel, designed to fit into standard Thorlabs pieces. Requires two bearings from McMaster-Carr catalog number 57155K323 at $5.70 each to be inserted into the large central holes with the flanges outward. We hot glue them in, taking care not to get the glue into the bearings.
