@@ -11,23 +11,23 @@ BeBox is a collection of tools used to control and measure animal behavior. It i
 - wheel.scad  the file used to create wheel.stl. The wheel height, diameter, and tab spacing can all be changed. Note that a finer tab spacing requires narrower LED beam break detectors-- do not change without changing the encoder board.
 - wheel holder.scad  the file used to create wheel axle.stl. The spring width, length, and thickness can all be adjusted and the wheel position will remain constant.
 
-wheel-accessories
+###wheel-accessories
 - wheel run stopper.stl  a pre-made file that fits into a thorlabs part and applies some resistance to the wheel without disrupting its low inertia/springiness
 - wheel run stopper.scad  the file used to create wheel run stopper.stl
 
-wheel-encoder
-NOTE: will be udpated in the near future
+###wheel-encoder
+__NOTE:__ will be udpated in the near future
 - wheel arduino holder.stl  a file to hold two LED beam breakers adjacent to the wheel
 - wheel encoder board holder.stl  a file to allow an arduino to be bolted on to the holder such that it can be held next to the wheel
 
 
-arduino code:
-NOTE: Has not yet been made compatible with the new BeBox system. Will be updated soon.
+##arduino code:
+__NOTE:__ Has not yet been made compatible with the new BeBox system. Will be updated soon.
 - BeBox.ino  the code to run the BeBox system
 - mpr121.h  the header definitions required for the capacitance lick detection system
 
 
-pcb designs:
+##pcb designs:
 PCBs can be ordered from OSH Park for low costs. As of now, they are untested so please wait ~3 weeks
 - bebox.brd  the main board, which takes power and connects directly to high-current behavior systems such as solenoids. It passed on the power given to it (usually 12V 2A supply, but can be 6-13 V and > 1 A). It connects via headphone cables to the daughter boards and lick spout. The connection ports are interchangeable.
 - bebox.sch  the associated schematic
