@@ -4,6 +4,17 @@ BeBox is a collection of tools used to control and measure animal behavior. It i
 
 ##3d designs:
 
+
+###lickspout
+__NOTE:__ the lickspouts should be printed with conductive PLA if conductive measurement is desired. The lickspout base should be printed in regular PLA. Conductive PLA plastic can be found at https://www.proto-pasta.com/collections/exotic-composite-pla/products/conductive-pla
+- lickspout bitube.stl  a pre-made file to be printed with conductive filament that has two tubes, one regularly used for ensure high-calorie milkshake and one used for quinine diluted in water. This is designed for Tygon tubing of 1/16 inch inner diameter and 1/8 inch outer diameter (1.6 mm ID/3.2 mm OD). 
+- lickspout unitube.stl  a pre-made file to be printed with conductive filament that has a single tube with a collection area, for training on only a high-calorie milkshake
+- lickspout.scad  the file used to create both lickspout bitube and lickspout unitube. Adjustments can be made to the tube diameters at the top. Note that the curved pipe library is required for making changes: https://www.thingiverse.com/thing:71464
+- lickspout bitube water.stl  a pre-made file to be printed with conductive filament that has two narrow-diameter tubes. The input tubing should be the same diameter, but the flow rate is decreased
+- lickspout water.scad  the file used to create lickspout bitube water.stl. This, too, depends on the curved pipe library
+- utilities.scad  a set of useful functions for OpenSCAD, the program used to generate these files
+
+
 ###wheel
 - wheel.stl  a pre-made file that can be printed on an average FDM printer with minimal layer heights. This requires two M4 nuts to be embedded and two M4x10 bolts to pinch the axles
 - wheel axle.stl  a pre-made file of a short axle piece used to attach the wheel to the wheel holder. 2 are required
@@ -25,6 +36,7 @@ __NOTE:__ will be udpated in the near future
 __NOTE:__ Has not yet been made compatible with the new BeBox system. Will be updated soon.
 - BeBox.ino  the code to run the BeBox system
 - mpr121.h  the header definitions required for the capacitance lick detection system
+- encoder_scanbox.ino  code to run an encoder that connects to the Scanbox system from Neurolabware
 
 
 ##pcb designs:
