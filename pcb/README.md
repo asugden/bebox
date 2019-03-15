@@ -44,6 +44,6 @@
 | headphone jack      | 1     | 1.66          | 1.66       | Digikey | CP-435107RS-ND     | 
 
 This board can be configured in one of three ways: 
-	1. For connection to the BeBox system, one can solder on an Adafruit Metro Mini (an Arduino Uno clone that has been miniaturized) and the i2c headphone jack. This will allow BeBox to directly interact with the running encoder.  __(both optional components)__
-	2. To connect to Neurolabware's Scanbox, one can solder on an Adafruit Metro Mini and no headphone jacks. This can be plugged directly into the Scanbox computer via USB and it will be indistinguishable from an Arduino Uno.  __(only optional metro mini)__
-	3. To use this with systems sensitive to electrical noise (electrophysiology), one can solder on the "ephys only" headphone jack, which transmits ground, power, and the output of the two beam breakers. This i2c cable can pass outside of a faraday cage to an external Arduino.  __(only optional headphone jack)__
+1. For connection to the BeBox system, one can solder on an Adafruit Metro Mini (an Arduino Uno clone that has been miniaturized) and the i2c headphone jack. This will allow BeBox to directly interact with the running encoder.  __(both optional components)__
+2. To connect to Neurolabware's Scanbox, one can solder on an Adafruit Metro Mini and no headphone jacks. This can be plugged directly into the Scanbox computer via USB and it will be indistinguishable from an Arduino Uno.  __(only optional metro mini)__
+3. To use this with systems sensitive to electrical noise (electrophysiology), one can solder on the "ephys only" headphone jack, which transmits ground, power, and the output of the two beam breakers. This i2c cable can pass outside of a faraday cage to an external Arduino.  __(only optional headphone jack)__
