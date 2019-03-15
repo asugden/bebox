@@ -2,4 +2,4 @@
 *.s#*
 .DS_Store
 pcb/old/*
-
+pcb/eagle.epf

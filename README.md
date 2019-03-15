@@ -17,7 +17,7 @@ __NOTE:__ the lickspouts should be printed with conductive PLA if conductive mea
 
 
 ###wheel
-- wheel.stl  a pre-made file that can be printed on an average FDM printer with minimal layer heights. This requires two M4 nuts to be embedded and two M4x10 bolts to pinch the axles
+- wheel.stl  a pre-made file that can be printed on an average FDM printer with minimal layer heights. This requires two M4 nuts to be embedded and two M4x10 bolts to pinch the axles. I recommend using black PLA for the wheel as other colors may not correctly block the IR light of a beam breaker. We had problems with gray PLA being transparent to IR light.
 - wheel axle.stl  a pre-made file of a short axle piece used to attach the wheel to the wheel holder. 2 are required
 - wheel holder.stl  a pre-made file of a suspension system for the wheel, designed to fit into standard Thorlabs pieces. Requires two bearings from McMaster-Carr catalog number 57155K323 at $5.70 each to be inserted into the large central holes with the flanges outward. We hot glue them in, taking care not to get the glue into the bearings.
 - wheel.scad  the file used to create wheel.stl. The wheel height, diameter, and tab spacing can all be changed. Note that a finer tab spacing requires narrower LED beam break detectors-- do not change without changing the encoder board.
@@ -43,12 +43,17 @@ __NOTE:__ Has not yet been made compatible with the new BeBox system. Will be up
 
 
 ##PCB DESIGNS:
-PCBs can be ordered from OSH Park for low costs. As of now, they are untested so please wait ~3 weeks
+PCBs can be ordered from OSH Park for low costs. As of now, they are untested so please wait ~3 weeks.
 
-- bebox.brd  the main board, which takes power and connects directly to high-current behavior systems such as solenoids. It passed on the power given to it (usually 12V 2A supply, but can be 6-13 V and > 1 A). It connects via headphone cables to the daughter boards and lick spout. The connection ports are interchangeable.
-- bebox.sch  the associated schematic
+PCBs have been designed in Eagle and the design files are linked below.
+
+- bebox_main.brd  the main board, which takes power and connects directly to high-current behavior systems such as solenoids. It passed on the power given to it (usually 12V 2A supply, but can be 6-13 V and > 1 A). It connects via headphone cables to the daughter boards and lick spout. The connection ports are interchangeable.
+- bebox_main.sch  the associated schematic
 - bebox_bnc.brd  a daughterboard that allows for connections with Matlab via a Nidaq BNC system. It includes the lick detection and 4 output solenoids
 - bebox_bnc.sch  the associated schematic
 - bebox_buttons.brd  a daughterboard that allows control of solenoids and reports licking. There are two lick detection LEDs, just in case, and four buttons to control solenoids.
 - bebox_buttons.sch  the associated schematic
-
+- bebox_encoder.brd  a board that holds the rotary encoder IR beam breakers adjacent to the running wheel. This board can be configured in one of three ways: 
+	1. For connection to the BeBox system, one can solder on an Adafruit Metro Mini (an Arduino Uno clone that has been miniaturized) and the i2c headphone jack. This will allow BeBox to directly interact with the running encoder. 
+	2. To connect to Neurolabware's Scanbox, one can solder on an Adafruit Metro Mini and no headphone jacks. This can be plugged directly into the Scanbox computer via USB and it will be indistinguishable from an Arduino Uno.
+	3. To use this with systems sensitive to electrical noise (electrophysiology), one can solder on the "ephys only" headphone jack, which transmits ground, power, and the output of the two beam breakers. This i2c cable can pass outside of a faraday cage to an external Arduino.
