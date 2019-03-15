@@ -3,7 +3,9 @@
 BeBox is a collection of tools used to control and measure animal behavior. It includes four parts: finished 3d designs, the code used to generate them, the Arduino code necessary to run, and a set of PCB files.
 
 ##3D DESIGNS:
-
+- .stl files  are final output files to be used with 3D printers.
+- .scad files  are files written in OpenSCAD which define the .stl files and can be edited
+- Some designs are made in Fusion 360 and are available upon request.
 
 ###lickspout
 __NOTE:__ the lickspouts should be printed with conductive PLA if conductive measurement is desired. The lickspout base should be printed in regular PLA. Conductive PLA plastic can be found at https://www.proto-pasta.com/collections/exotic-composite-pla/products/conductive-pla
@@ -13,7 +15,7 @@ __NOTE:__ the lickspouts should be printed with conductive PLA if conductive mea
 - lickspout.scad  the file used to create both lickspout bitube and lickspout unitube. Adjustments can be made to the tube diameters at the top. Note that the curved pipe library is required for making changes: https://www.thingiverse.com/thing:71464
 - lickspout bitube water.stl  a pre-made file to be printed with conductive filament that has two narrow-diameter tubes. The input tubing should be the same diameter, but the flow rate is decreased
 - lickspout water.scad  the file used to create lickspout bitube water.stl. This, too, depends on the curved pipe library
-- utilities.scad  a set of useful functions for OpenSCAD, the program used to generate these files
+- utilities.scad  a set of useful functions for OpenSCAD
 
 
 ###wheel
@@ -33,27 +35,31 @@ __NOTE:__ will be udpated in the near future
 - wheel arduino holder.stl  a file to hold two LED beam breakers adjacent to the wheel
 - wheel encoder board holder.stl  a file to allow an arduino to be bolted on to the holder such that it can be held next to the wheel
 
+###syringe-pump
+
 
 ##ARDUINO CODE:
 __NOTE:__ Has not yet been made compatible with the new BeBox system. Will be updated soon.
 
-- BeBox.ino  the code to run the BeBox system
-- mpr121.h  the header definitions required for the capacitance lick detection system
-- encoder_scanbox.ino  code to run an encoder that connects to the Scanbox system from Neurolabware
+- BeBox  the code to run the BeBox system
+	- mpr121.h  the header definitions required for the capacitance lick detection system
+
+- Dumberbox  the code used to run the legacy Dumbberbox
+- Encoder_Scanbox  the code used to run the legacy scanbox rotary encoder. Will be replaced with BeBox encoder software in early April 2019.
 
 
 ##PCB DESIGNS:
-PCBs can be ordered from OSH Park for low costs. As of now, they are untested so please wait ~3 weeks.
+__All necessary components are listed in the README in the pcb directory.___
 
-PCBs have been designed in Eagle and the design files are linked below.
+- .brd files  board files, matched with their schematic file, made in Eagle. You can bypass dealing with these files by directly ordering from OSH Park through a link I've set up. I am not affiliated with OSH Park.
+- .sch files  schematic files, matched with a board file, made in Eagle. 
 
-- bebox_main.brd  the main board, which takes power and connects directly to high-current behavior systems such as solenoids. It passed on the power given to it (usually 12V 2A supply, but can be 6-13 V and > 1 A). It connects via headphone cables to the daughter boards and lick spout. The connection ports are interchangeable.
-- bebox_main.sch  the associated schematic
-- bebox_bnc.brd  a daughterboard that allows for connections with Matlab via a Nidaq BNC system. It includes the lick detection and 4 output solenoids
-- bebox_bnc.sch  the associated schematic
-- bebox_buttons.brd  a daughterboard that allows control of solenoids and reports licking. There are two lick detection LEDs, just in case, and four buttons to control solenoids.
-- bebox_buttons.sch  the associated schematic
-- bebox_encoder.brd  a board that holds the rotary encoder IR beam breakers adjacent to the running wheel. This board can be configured in one of three ways: 
+__NOTE:__  PCBs can be ordered from OSH Park for low costs. As of now, they are untested so please wait ~3 weeks.
+
+- bebox_main  the main board, which takes power and connects directly to high-current behavior systems such as solenoids. It passed on the power given to it (usually 12V 2A supply, but can be 6-13 V and > 1 A). It connects via headphone cables to the daughter boards and lick spout. The connection ports are interchangeable.
+- bebox_bnc  a daughterboard that allows for connections with Matlab via a Nidaq BNC system. It includes the lick detection and 4 output solenoids
+- bebox_buttons  a daughterboard that allows control of solenoids and reports licking. There are two lick detection LEDs, just in case, and four buttons to control solenoids.
+- bebox_encoder  a board that holds the rotary encoder IR beam breakers adjacent to the running wheel. This board can be configured in one of three ways: 
 	1. For connection to the BeBox system, one can solder on an Adafruit Metro Mini (an Arduino Uno clone that has been miniaturized) and the i2c headphone jack. This will allow BeBox to directly interact with the running encoder. 
 	2. To connect to Neurolabware's Scanbox, one can solder on an Adafruit Metro Mini and no headphone jacks. This can be plugged directly into the Scanbox computer via USB and it will be indistinguishable from an Arduino Uno.
 	3. To use this with systems sensitive to electrical noise (electrophysiology), one can solder on the "ephys only" headphone jack, which transmits ground, power, and the output of the two beam breakers. This i2c cable can pass outside of a faraday cage to an external Arduino.
