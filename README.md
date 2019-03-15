@@ -36,7 +36,7 @@ __NOTE:__ will be udpated in the near future
 - wheel encoder board holder.stl  a file to allow an arduino to be bolted on to the holder such that it can be held next to the wheel
 
 ###syringe-pump
-The syringe pump is designed to tightly fit 20 ml syringes.
+The syringe pump is designed to tightly fit 20 ml syringes. All necessary mechanical and electrical components are listed in the README of the syringe 
 
 - syringe pump box.stl  a file that defines the enclosure of the syringe pump including the motor and carriage
 - syringe pump carriage.stl  the carriage that rides along bearings to compress the syringe. Note that it should be printed vertically rather than on a flat face.
@@ -53,12 +53,12 @@ __NOTE:__ Has not yet been made compatible with the new BeBox system. Will be up
 
 
 ##PCB DESIGNS:
-__All necessary components are listed in the README in the pcb directory.___
+__All necessary components are listed in the README in the pcb directory.__
 
 - .brd files  board files, matched with their schematic file, made in Eagle. You can bypass dealing with these files by directly ordering from OSH Park through a link I've set up. I am not affiliated with OSH Park.
 - .sch files  schematic files, matched with a board file, made in Eagle. 
 
-__NOTE:__  PCBs can be ordered from OSH Park for low costs. As of now, they are untested so please wait ~3 weeks.
+__NOTE:__  PCBs can be ordered from OSH Park for low costs. As of now, they are untested so please wait until late March 2019
 
 - bebox_main  the main board, which takes power and connects directly to high-current behavior systems such as solenoids. It passed on the power given to it (usually 12V 2A supply, but can be 6-13 V and > 1 A). It connects via headphone cables to the daughter boards and lick spout. The connection ports are interchangeable.
 - bebox_bnc  a daughterboard that allows for connections with Matlab via a Nidaq BNC system. It includes the lick detection and 4 output solenoids
