@@ -36,6 +36,10 @@ __NOTE:__ will be udpated in the near future
 - wheel encoder board holder.stl  a file to allow an arduino to be bolted on to the holder such that it can be held next to the wheel
 
 ###syringe-pump
+The syringe pump is designed to tightly fit 20 ml syringes.
+
+- syringe pump box.stl  a file that defines the enclosure of the syringe pump including the motor and carriage
+- syringe pump carriage.stl  the carriage that rides along bearings to compress the syringe. Note that it should be printed vertically rather than on a flat face.
 
 
 ##ARDUINO CODE:
