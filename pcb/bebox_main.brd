@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.2">
+<eagle version="9.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -164,7 +164,6 @@
 <text x="27.559" y="24.765" size="1.27" layer="21">4.7k</text>
 <text x="40.386" y="24.765" size="1.27" layer="21">4.7k</text>
 <text x="53.086" y="24.765" size="1.27" layer="21">4.7k</text>
-<text x="65.659" y="24.765" size="1.27" layer="21">4.7k</text>
 <text x="78.105" y="33.909" size="1.27" layer="21" rot="R90">4.7k</text>
 <wire x1="11.43" y1="36.83" x2="12.7" y2="36.83" width="0.4064" layer="21"/>
 <wire x1="12.7" y1="36.83" x2="20.32" y2="36.83" width="0.4064" layer="21"/>
@@ -190,21 +189,14 @@
 <wire x1="58.42" y1="36.83" x2="58.42" y2="35.56" width="0.4064" layer="21"/>
 <wire x1="58.42" y1="35.56" x2="50.8" y2="35.56" width="0.4064" layer="21"/>
 <wire x1="50.8" y1="35.56" x2="50.8" y2="36.83" width="0.4064" layer="21"/>
-<wire x1="62.23" y1="36.83" x2="63.5" y2="36.83" width="0.4064" layer="21"/>
-<wire x1="63.5" y1="36.83" x2="71.12" y2="36.83" width="0.4064" layer="21"/>
-<wire x1="72.39" y1="36.83" x2="71.12" y2="36.83" width="0.4064" layer="21"/>
-<wire x1="71.12" y1="36.83" x2="71.12" y2="35.56" width="0.4064" layer="21"/>
-<wire x1="71.12" y1="35.56" x2="63.5" y2="35.56" width="0.4064" layer="21"/>
-<wire x1="63.5" y1="35.56" x2="63.5" y2="36.83" width="0.4064" layer="21"/>
 <text x="81.915" y="33.909" size="1.27" layer="21" rot="R90">4.7k</text>
-<text x="52.07" y="43.18" size="1.27" layer="21">TIP122</text>
-<text x="64.77" y="43.18" size="1.27" layer="21">TIP122</text>
-<text x="39.37" y="43.18" size="1.27" layer="21">TIP122</text>
-<text x="26.67" y="43.18" size="1.27" layer="21">TIP122</text>
-<text x="13.97" y="43.18" size="1.27" layer="21">TIP122</text>
+<text x="52.07" y="36.83" size="1.27" layer="21">TIP122</text>
+<text x="39.37" y="36.83" size="1.27" layer="21">TIP122</text>
+<text x="26.67" y="36.83" size="1.27" layer="21">TIP122</text>
+<text x="13.97" y="36.83" size="1.27" layer="21">TIP122</text>
 <text x="72.39" y="11.43" size="2.54" layer="21">BeBox</text>
 <text x="89.408" y="43.942" size="0.8128" layer="21">A Sugden v1.0</text>
-<hole x="74.93" y="43.18" drill="3.199890625"/>
+<hole x="68.58" y="41.91" drill="3.199890625"/>
 <text x="14.097" y="14.351" size="0.8128" layer="21">i2C OVER
 4 CHAN</text>
 <text x="26.797" y="14.478" size="0.8128" layer="21">i2C OVER
@@ -215,6 +207,10 @@
 4 CHAN</text>
 <text x="62.611" y="17.272" size="0.8128" layer="21">DC CENT-POS
 12V &gt;1 AMP</text>
+<text x="13.97" y="43.18" size="1.27" layer="21">SOL 1</text>
+<text x="26.67" y="43.18" size="1.27" layer="21">SOL 2</text>
+<text x="39.37" y="43.18" size="1.27" layer="21">SOL 3</text>
+<text x="52.07" y="43.18" size="1.27" layer="21">SOL 4</text>
 </plain>
 <libraries>
 <library name="adafruit" urn="urn:adsk.eagle:library:420">
@@ -1551,61 +1547,6 @@ type 0207, grid 10 mm</description>
 </package3d>
 </packages3d>
 </library>
-<library name="transistor-neu-to92" urn="urn:adsk.eagle:library:397">
-<description>&lt;b&gt;NPN Transistors&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="TO220" urn="urn:adsk.eagle:footprint:28659/1" library_version="2">
-<description>&lt;b&gt;TO 220 horizontal&lt;/b&gt;</description>
-<wire x1="-5.207" y1="-1.27" x2="5.207" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="5.207" y1="14.605" x2="-5.207" y2="14.605" width="0.127" layer="21"/>
-<wire x1="5.207" y1="-1.27" x2="5.207" y2="11.176" width="0.127" layer="21"/>
-<wire x1="5.207" y1="11.176" x2="4.318" y2="11.176" width="0.127" layer="21"/>
-<wire x1="4.318" y1="11.176" x2="4.318" y2="12.7" width="0.127" layer="21"/>
-<wire x1="4.318" y1="12.7" x2="5.207" y2="12.7" width="0.127" layer="21"/>
-<wire x1="5.207" y1="12.7" x2="5.207" y2="14.605" width="0.127" layer="21"/>
-<wire x1="-5.207" y1="-1.27" x2="-5.207" y2="11.176" width="0.127" layer="21"/>
-<wire x1="-5.207" y1="11.176" x2="-4.318" y2="11.176" width="0.127" layer="21"/>
-<wire x1="-4.318" y1="11.176" x2="-4.318" y2="12.7" width="0.127" layer="21"/>
-<wire x1="-4.318" y1="12.7" x2="-5.207" y2="12.7" width="0.127" layer="21"/>
-<wire x1="-5.207" y1="12.7" x2="-5.207" y2="14.605" width="0.127" layer="21"/>
-<wire x1="-4.572" y1="-0.635" x2="4.572" y2="-0.635" width="0.0508" layer="21"/>
-<wire x1="4.572" y1="7.62" x2="4.572" y2="-0.635" width="0.0508" layer="21"/>
-<wire x1="4.572" y1="7.62" x2="-4.572" y2="7.62" width="0.0508" layer="21"/>
-<wire x1="-4.572" y1="-0.635" x2="-4.572" y2="7.62" width="0.0508" layer="21"/>
-<circle x="0" y="11.176" radius="1.8034" width="0.127" layer="21"/>
-<circle x="0" y="11.176" radius="4.191" width="0" layer="42"/>
-<circle x="0" y="11.176" radius="4.191" width="0" layer="43"/>
-<pad name="1" x="-2.54" y="-6.35" drill="1.1176" shape="long" rot="R90"/>
-<pad name="2" x="0" y="-6.35" drill="1.1176" shape="long" rot="R90"/>
-<pad name="3" x="2.54" y="-6.35" drill="1.1176" shape="long" rot="R90"/>
-<text x="-3.81" y="5.207" size="1.778" layer="25" ratio="10">&gt;NAME</text>
-<text x="-3.937" y="2.54" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-4.445" y="7.874" size="0.9906" layer="21" ratio="12">A17,5mm</text>
-<text x="-3.175" y="0" size="1.27" layer="51" ratio="10">1</text>
-<text x="-0.635" y="0" size="1.27" layer="51" ratio="10">2</text>
-<text x="1.905" y="0" size="1.27" layer="51" ratio="10">3</text>
-<rectangle x1="2.159" y1="-4.699" x2="2.921" y2="-4.064" layer="21"/>
-<rectangle x1="-0.381" y1="-4.699" x2="0.381" y2="-4.064" layer="21"/>
-<rectangle x1="-2.921" y1="-4.699" x2="-2.159" y2="-4.064" layer="21"/>
-<rectangle x1="-3.175" y1="-4.064" x2="-1.905" y2="-1.27" layer="21"/>
-<rectangle x1="-0.635" y1="-4.064" x2="0.635" y2="-1.27" layer="21"/>
-<rectangle x1="1.905" y1="-4.064" x2="3.175" y2="-1.27" layer="21"/>
-<rectangle x1="-2.921" y1="-6.604" x2="-2.159" y2="-4.699" layer="51"/>
-<rectangle x1="-0.381" y1="-6.604" x2="0.381" y2="-4.699" layer="51"/>
-<rectangle x1="2.159" y1="-6.604" x2="2.921" y2="-4.699" layer="51"/>
-<hole x="0" y="11.176" drill="3.302"/>
-</package>
-</packages>
-<packages3d>
-<package3d name="TO220" urn="urn:adsk.eagle:package:28731/1" type="box" library_version="2">
-<description>TO 220 horizontal</description>
-<packageinstances>
-<packageinstance name="TO220"/>
-</packageinstances>
-</package3d>
-</packages3d>
-</library>
 <library name="Arthur's Library">
 <packages>
 <package name="PROTRINKET" urn="urn:adsk.eagle:footprint:6240307/1" locally_modified="yes">
@@ -1686,6 +1627,44 @@ type 0207, grid 10 mm</description>
 <package3d name="PROTRINKET" urn="urn:adsk.eagle:package:6240950/1" locally_modified="yes" type="box">
 <packageinstances>
 <packageinstance name="PROTRINKET"/>
+</packageinstances>
+</package3d>
+</packages3d>
+</library>
+<library name="transistor" urn="urn:adsk.eagle:library:402">
+<description>&lt;b&gt;Transistors&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="TO220AV" urn="urn:adsk.eagle:footprint:28708/1" library_version="4">
+<description>&lt;b&gt;Molded Package&lt;/b&gt;&lt;p&gt;
+grid 2.54 mm</description>
+<wire x1="5.08" y1="-1.143" x2="4.953" y2="-4.064" width="0.1524" layer="21"/>
+<wire x1="4.699" y1="-4.318" x2="4.953" y2="-4.064" width="0.1524" layer="21"/>
+<wire x1="4.699" y1="-4.318" x2="-4.699" y2="-4.318" width="0.1524" layer="21"/>
+<wire x1="-4.953" y1="-4.064" x2="-4.699" y2="-4.318" width="0.1524" layer="21"/>
+<wire x1="-4.953" y1="-4.064" x2="-5.08" y2="-1.143" width="0.1524" layer="21"/>
+<circle x="-4.4958" y="-3.7084" radius="0.254" width="0.1524" layer="21"/>
+<pad name="1" x="-2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="0" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<text x="-5.08" y="-6.0452" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-5.08" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-5.334" y1="-0.762" x2="5.334" y2="0" layer="21"/>
+<rectangle x1="-5.334" y1="-1.27" x2="-3.429" y2="-0.762" layer="21"/>
+<rectangle x1="-1.651" y1="-1.27" x2="-0.889" y2="-0.762" layer="21"/>
+<rectangle x1="-3.429" y1="-1.27" x2="-1.651" y2="-0.762" layer="51"/>
+<rectangle x1="0.889" y1="-1.27" x2="1.651" y2="-0.762" layer="21"/>
+<rectangle x1="3.429" y1="-1.27" x2="5.334" y2="-0.762" layer="21"/>
+<rectangle x1="-0.889" y1="-1.27" x2="0.889" y2="-0.762" layer="51"/>
+<rectangle x1="1.651" y1="-1.27" x2="3.429" y2="-0.762" layer="51"/>
+</package>
+</packages>
+<packages3d>
+<package3d name="TO220AV" urn="urn:adsk.eagle:package:28770/2" type="model" library_version="4">
+<description>Molded Package
+grid 2.54 mm</description>
+<packageinstances>
+<packageinstance name="TO220AV"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -1876,10 +1855,6 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="D1" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="DO41-10" package3d_urn="urn:adsk.eagle:package:6240344/1" value="1N4004" x="67.31" y="29.21" smashed="yes">
-<attribute name="NAME" x="65.278" y="30.861" size="1.27" layer="25" ratio="10"/>
-<attribute name="VALUE" x="65.278" y="26.416" size="1.27" layer="27" ratio="10"/>
-</element>
 <element name="D2" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="DO41-10" package3d_urn="urn:adsk.eagle:package:6240344/1" value="1N4004" x="54.61" y="29.21" smashed="yes">
 <attribute name="NAME" x="52.578" y="30.861" size="1.27" layer="25" ratio="10"/>
 <attribute name="VALUE" x="52.578" y="26.416" size="1.27" layer="27" ratio="10"/>
@@ -1943,16 +1918,6 @@ design rules under a new name.</description>
 <attribute name="PRICE" value="1.04 USD" x="113.03" y="53.34" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="49.98948125" y="10.5884" size="1.27465" layer="27" rot="R90"/>
 </element>
-<element name="P1" library="OSTTE020104" package="OST_OSTTE020104" value="OSTTE020104" x="67.31" y="41.91" smashed="yes">
-<attribute name="DESCRIPTION" value=" Terminal Block 3.5mm 2pos Pcb " x="139.7" y="-26.67" size="1.778" layer="27" display="off"/>
-<attribute name="DIGI-KEY_PART_NUMBER" value="ED2740-ND" x="139.7" y="-26.67" size="1.778" layer="27" display="off"/>
-<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/on-shore-technology-inc/OSTTE020104/ED2740-ND/2351816?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol" x="139.7" y="-26.67" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="On Shore" x="139.7" y="-26.67" size="1.778" layer="27" display="off"/>
-<attribute name="MP" value="OSTTE020104" x="139.7" y="-26.67" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="63.00748125" y="45.61216875" size="1.27075" layer="25"/>
-<attribute name="PACKAGE" value="None" x="139.7" y="-26.67" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="63.00673125" y="36.706040625" size="1.27096875" layer="27"/>
-</element>
 <element name="P2" library="OSTTE020104" package="OST_OSTTE020104" value="OSTTE020104" x="54.61" y="41.91" smashed="yes">
 <attribute name="DESCRIPTION" value=" Terminal Block 3.5mm 2pos Pcb " x="76.2" y="-43.18" size="1.778" layer="27" display="off"/>
 <attribute name="DIGI-KEY_PART_NUMBER" value="ED2740-ND" x="76.2" y="-43.18" size="1.778" layer="27" display="off"/>
@@ -2007,11 +1972,6 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="R" x="176.53" y="54.61" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="78.105" y="33.2994" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" package="0207/10" package3d_urn="urn:adsk.eagle:package:23491/1" value="4.7k" x="67.31" y="25.4" smashed="yes">
-<attribute name="NAME" x="64.262" y="26.924" size="1.27" layer="25" ratio="10"/>
-<attribute name="SPICEPREFIX" value="R" x="99.06" y="-73.66" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="65.0494" y="24.765" size="1.27" layer="27" ratio="10"/>
-</element>
 <element name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" package="0207/10" package3d_urn="urn:adsk.eagle:package:23491/1" value="4.7k" x="54.61" y="25.4" smashed="yes">
 <attribute name="NAME" x="51.562" y="26.924" size="1.27" layer="25" ratio="10"/>
 <attribute name="SPICEPREFIX" value="R" x="99.06" y="-73.66" size="1.778" layer="27" display="off"/>
@@ -2032,25 +1992,21 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="R" x="35.56" y="-78.74" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="14.2494" y="24.765" size="1.27" layer="27" ratio="10"/>
 </element>
-<element name="T1" library="transistor-neu-to92" library_urn="urn:adsk.eagle:library:397" package="TO220" package3d_urn="urn:adsk.eagle:package:28731/1" value="TIP122" x="67.31" y="39.37" smashed="yes">
-<attribute name="NAME" x="63.5" y="44.577" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="63.373" y="41.91" size="1.778" layer="27" ratio="10"/>
+<element name="T2" library="transistor" library_urn="urn:adsk.eagle:library:402" package="TO220AV" package3d_urn="urn:adsk.eagle:package:28770/2" value="2SC2098V" x="54.61" y="35.56" smashed="yes">
+<attribute name="NAME" x="50.8" y="40.767" size="1.778" layer="25" ratio="10"/>
+<attribute name="VALUE" x="50.673" y="38.1" size="1.778" layer="27" ratio="10"/>
 </element>
-<element name="T2" library="transistor-neu-to92" library_urn="urn:adsk.eagle:library:397" package="TO220" package3d_urn="urn:adsk.eagle:package:28731/1" value="TIP122" x="54.61" y="39.37" smashed="yes">
-<attribute name="NAME" x="50.8" y="44.577" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="50.673" y="41.91" size="1.778" layer="27" ratio="10"/>
+<element name="T3" library="transistor" library_urn="urn:adsk.eagle:library:402" package="TO220AV" package3d_urn="urn:adsk.eagle:package:28770/2" value="2SC2098V" x="41.91" y="35.56" smashed="yes">
+<attribute name="NAME" x="38.1" y="40.767" size="1.778" layer="25" ratio="10"/>
+<attribute name="VALUE" x="37.973" y="38.1" size="1.778" layer="27" ratio="10"/>
 </element>
-<element name="T3" library="transistor-neu-to92" library_urn="urn:adsk.eagle:library:397" package="TO220" package3d_urn="urn:adsk.eagle:package:28731/1" value="TIP122" x="41.91" y="39.37" smashed="yes">
-<attribute name="NAME" x="38.1" y="44.577" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="37.973" y="41.91" size="1.778" layer="27" ratio="10"/>
+<element name="T4" library="transistor" library_urn="urn:adsk.eagle:library:402" package="TO220AV" package3d_urn="urn:adsk.eagle:package:28770/2" value="2SC2098V" x="29.21" y="35.56" smashed="yes">
+<attribute name="NAME" x="25.4" y="40.767" size="1.778" layer="25" ratio="10"/>
+<attribute name="VALUE" x="25.273" y="38.1" size="1.778" layer="27" ratio="10"/>
 </element>
-<element name="T4" library="transistor-neu-to92" library_urn="urn:adsk.eagle:library:397" package="TO220" package3d_urn="urn:adsk.eagle:package:28731/1" value="TIP122" x="29.21" y="39.37" smashed="yes">
-<attribute name="NAME" x="25.4" y="44.577" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="25.273" y="41.91" size="1.778" layer="27" ratio="10"/>
-</element>
-<element name="T5" library="transistor-neu-to92" library_urn="urn:adsk.eagle:library:397" package="TO220" package3d_urn="urn:adsk.eagle:package:28731/1" value="TIP122" x="16.51" y="39.37" smashed="yes">
-<attribute name="NAME" x="12.7" y="44.577" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="12.573" y="41.91" size="1.778" layer="27" ratio="10"/>
+<element name="T5" library="transistor" library_urn="urn:adsk.eagle:library:402" package="TO220AV" package3d_urn="urn:adsk.eagle:package:28770/2" value="2SC2098V" x="16.51" y="35.56" smashed="yes">
+<attribute name="NAME" x="12.7" y="40.767" size="1.778" layer="25" ratio="10"/>
+<attribute name="VALUE" x="12.573" y="38.1" size="1.778" layer="27" ratio="10"/>
 </element>
 <element name="U$1" library="Arthur's Library" package="PROTRINKET" package3d_urn="urn:adsk.eagle:package:6240950/1" value="PRO_TRINKET" x="92.71" y="38.1" smashed="yes" rot="R180"/>
 </elements>
@@ -2060,7 +2016,6 @@ design rules under a new name.</description>
 </signal>
 <signal name="GND">
 <contactref element="J6" pad="2"/>
-<contactref element="T1" pad="3"/>
 <contactref element="J4" pad="1"/>
 <contactref element="LICK" pad="1"/>
 <contactref element="J1" pad="1"/>
@@ -2089,26 +2044,7 @@ design rules under a new name.</description>
 <wire x1="66.802" y1="21.359" x2="67.033" y2="21.59" width="0.6096" layer="16"/>
 <wire x1="67.033" y1="21.59" x2="78.74" y2="21.59" width="0.6096" layer="16"/>
 </signal>
-<signal name="N$2">
-<contactref element="R3" pad="2"/>
-<contactref element="T1" pad="1"/>
-<wire x1="64.77" y1="33.02" x2="64.77" y2="30.48" width="0.4064" layer="16"/>
-<wire x1="64.77" y1="30.48" x2="69.85" y2="25.4" width="0.4064" layer="16"/>
-<wire x1="69.85" y1="25.4" x2="72.39" y2="25.4" width="0.4064" layer="16"/>
-</signal>
-<signal name="N$3">
-<contactref element="T1" pad="2"/>
-<contactref element="P1" pad="2"/>
-<contactref element="D1" pad="A"/>
-<wire x1="67.31" y1="33.02" x2="67.31" y2="40.16" width="0.6096" layer="16"/>
-<wire x1="67.31" y1="40.16" x2="69.06" y2="41.91" width="0.6096" layer="16"/>
-<wire x1="67.31" y1="33.02" x2="67.31" y2="31.75" width="0.6096" layer="16"/>
-<wire x1="67.31" y1="31.75" x2="69.85" y2="29.21" width="0.6096" layer="16"/>
-<wire x1="69.85" y1="29.21" x2="72.39" y2="29.21" width="0.6096" layer="16"/>
-</signal>
 <signal name="12V">
-<contactref element="P1" pad="1"/>
-<contactref element="D1" pad="C"/>
 <contactref element="POWER" pad="1"/>
 <contactref element="U$1" pad="BAT+"/>
 <contactref element="P2" pad="1"/>
@@ -2138,15 +2074,11 @@ design rules under a new name.</description>
 <wire x1="36.83" y1="38.58" x2="40.16" y2="41.91" width="0.6096" layer="16"/>
 <wire x1="49.53" y1="29.21" x2="49.53" y2="38.58" width="0.6096" layer="16"/>
 <wire x1="49.53" y1="38.58" x2="52.86" y2="41.91" width="0.6096" layer="16"/>
-<wire x1="62.23" y1="29.21" x2="62.23" y2="38.58" width="0.6096" layer="16"/>
-<wire x1="62.23" y1="38.58" x2="65.56" y2="41.91" width="0.6096" layer="16"/>
 <wire x1="74.93" y1="44.45" x2="66.04" y2="44.45" width="0.6096" layer="16"/>
 <wire x1="66.04" y1="44.45" x2="53.34" y2="44.45" width="0.6096" layer="16"/>
 <wire x1="53.34" y1="44.45" x2="40.64" y2="44.45" width="0.6096" layer="16"/>
 <wire x1="40.64" y1="44.45" x2="27.94" y2="44.45" width="0.6096" layer="16"/>
 <wire x1="27.94" y1="44.45" x2="15.740490625" y2="44.45" width="0.6096" layer="16"/>
-<wire x1="65.56" y1="41.91" x2="66.04" y2="42.39" width="0.6096" layer="16"/>
-<wire x1="66.04" y1="42.39" x2="66.04" y2="44.45" width="0.6096" layer="16"/>
 <wire x1="52.86" y1="41.91" x2="53.34" y2="42.39" width="0.6096" layer="16"/>
 <wire x1="53.34" y1="42.39" x2="53.34" y2="44.45" width="0.6096" layer="16"/>
 <wire x1="27.46" y1="41.91" x2="27.94" y2="42.39" width="0.6096" layer="16"/>
@@ -2350,15 +2282,6 @@ design rules under a new name.</description>
 <wire x1="58.42" y1="30.48" x2="54.61" y2="30.48" width="0.4064" layer="1"/>
 <wire x1="54.61" y1="30.48" x2="49.53" y2="25.4" width="0.4064" layer="1"/>
 <wire x1="83.439" y1="29.21" x2="85.09" y2="27.559" width="0.4064" layer="1"/>
-</signal>
-<signal name="N$16">
-<contactref element="R3" pad="1"/>
-<contactref element="U$1" pad="8"/>
-<wire x1="85.09" y1="25.019" x2="82.169" y2="27.94" width="0.4064" layer="1"/>
-<wire x1="73.66" y1="27.94" x2="72.39" y2="26.67" width="0.4064" layer="1"/>
-<wire x1="72.39" y1="26.67" x2="63.5" y2="26.67" width="0.4064" layer="1"/>
-<wire x1="63.5" y1="26.67" x2="62.23" y2="25.4" width="0.4064" layer="1"/>
-<wire x1="82.169" y1="27.94" x2="73.66" y2="27.94" width="0.4064" layer="1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
