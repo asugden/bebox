@@ -1,159 +1,161 @@
-
-#include "mpr121.h"
 #include <Wire.h>
-#include <digitalWriteFast.h>
+#include "Adafruit_MCP23008.h"
+#include "mpr121.h"
 
-#define LICKMIN 60
-#define DISPMIN 50
-#define DEBOUNCE 50
-#define LICKTIME 100
-#define SOLMTIME 10
-#define SOLNTIME 10
-#define SOLPTIME 10
+#define LICK_MIN_MS 60
+#define SOLENOID_MIN_MS 20
 
-bool onLick = false;
-bool onSolenoidP = false;
-bool onSolenoidN = false;
-bool onSolenoidM = false;
-bool BsolenoidP = false;
-bool BsolenoidN = false;
-bool BsolenoidM = false;
+bool active_but[4] = {false, false, false, false};  // Which buttons are active
+bool active_bnc[4] = {false, false, false, false};  // Which BNCs are active
+int solenoid_on = -1;  // There can only be one solenoid on at a time
+unsigned long int solenoid_change = 0;  // The solenoids can only change every N ms
 
-boolean touchStates[12];  // to keep track of the previous touch states
+bool touchStates[12];  // to keep track of the previous touch states
+int active_lick = -1;  // Which lick option is selected
+int lick_ttl_on = -1;
+unsigned long int last_lick = 0;  // The time of the last lick
+unsigned long int last_lick_ttl = 0;  // The time of the last lick
+bool lick_change = false;
 
-unsigned long int TonLick = 0;
-unsigned long int TonSolenoidP = 0;
-unsigned long int TonSolenoidN = 0;
-unsigned long int TonSolenoidM = 0;
-unsigned long int now;
+unsigned long int now = 0;
 
-/* PINS:
-3 Solenoid left (from back)/ right (from front)/yellow/plus
-4 Solenoid middle/black/neutral
-5 Solenoid right (from back)/ left (from front)/red/minus
-8 Lick TTL
-10 red button/minus
-11 black button/neutral
-12 yellow button/plus
-14 TTL right (from back)/red/minus
-15 TTL middle/black/neutral
-16 TTL left/yellow/plus
-17 Lick LED
-*/
+Adafruit_MCP23008 bebox_but;
+Adafruit_MCP23008 bebox_bnc;
 
 void setup() {
-  pinModeFast(3, OUTPUT);
-  pinModeFast(4, OUTPUT);
-  pinModeFast(5, OUTPUT);
-  pinModeFast(8, OUTPUT);
+  // Initialize the BNC sub-box
+  bebox_bnc.begin(0);
+  for (int i = 1; i < 5; i++) {
+    bebox_bnc.pinMode(i, INPUT);
+  }
+  bebox_bnc.pinMode(0, OUTPUT);  // lick  
   
-  pinModeFast(10, INPUT);
-  digitalWrite(10, HIGH);  // equivalent to INPUT_PULLUP
-  pinModeFast(11, INPUT);
-  digitalWrite(11, HIGH);  // equivalent to INPUT_PULLUP
-  pinModeFast(12, INPUT);
-  digitalWrite(12, HIGH);  // equivalent to INPUT_PULLUP
-  
-  pinModeFast(14, INPUT);
-  pinModeFast(15, INPUT);
-  pinModeFast(16, INPUT);
-  pinModeFast(17, OUTPUT);
-  
+  // Initialize the button sub-box
+  bebox_but.begin(1);
+  for (int i = 0; i < 4; i++) {
+    bebox_but.pinMode(i, INPUT);
+    bebox_but.pullUp(i, HIGH);  // turn on a 100K pullup internally
+  }
+  bebox_but.pinMode(4, OUTPUT);  // red LED
+  bebox_but.pinMode(5, OUTPUT);  // yellow LED
+
+  // Initialize the solenoid outputs
+  for (int i = 3; i < 7; i++) {
+    pinMode(i, OUTPUT);
+    digitalWrite(i, LOW);
+  }
+
+  // Initialize the lick detection
   Wire.begin();
   mpr121_setup();
-  
-//  Serial.begin(9600);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  
   now = millis();
-  checkLick();
-  checkSolenoids();
+  checkBNCs();
+  checkButtons();
+  setSolenoids();
+  
+  checkLicks();
+  if (lick_change) {
+    setLicks();
+    lick_change = false;
+  }
 }
 
+// Check which BNCs are currently on
+void checkBNCs() {
+  int mcpio = bebox_bnc.readGPIO();
+  for (int i = 1; i < 5; i++) {
+    active_bnc[i] = ((mcpio >> i+1) & 0x1);
+  }
+}
 
-bool readTouchInputs(){
-  //read the touch state from the MPR121
-  bool out = false;
-  
-  Wire.requestFrom(0x5A,2); 
-  byte LSB = Wire.read();
-  byte MSB = Wire.read();
-  uint16_t touched = ((MSB << 8) | LSB); //16bits that make up the touch states
+// Check which buttons are currently on
+void checkButtons() {
+  int mcpio = bebox_but.readGPIO();
+  for (int i = 0; i < 4; i++) {
+    active_but[i] = !((mcpio >> i) & 0x1);
+  }
+}
 
-  for (int i = 0; i < 12; i++) {  // Check what electrodes were pressed
-    if(touched & (1<<i)){
-    
-      if(touchStates[i] == 0){
-        out = true;
-      
-      }
-    
-      touchStates[i] = 1;      
+// Set which solenoid is active
+void setSolenoids() {
+  if (now - solenoid_change > SOLENOID_MIN_MS) {
+    if (solenoid_on > -1 and !active_bnc[solenoid_on] and !active_but[solenoid_on]) {
+      digitalWrite(7 - solenoid_on, LOW);
+      solenoid_on = -1;
+      solenoid_change = now;
     }
-    else{
-      
-      touchStates[i] = 0;
+    else {
+      int i = 0;
+      while (solenoid_on < 0 && i < 4) {
+        if (active_bnc[i] || active_but[i]) {
+          solenoid_on = i;
+          digitalWrite(7 - solenoid_on, HIGH);
+          solenoid_change = now;
+        }
+        i++;
+      }
     }
   }
-  
-  return out;
 }
 
 // Check for a lick, if found, pass on to TTL and LED
-void checkLick() {
-  bool i2click = readTouchInputs();
-  if (onLick && now - TonLick > LICKTIME) {
-    onLick = false;
-    TonLick = now;
-    digitalWriteFast(8, false);
-    digitalWriteFast(17, false);
-  }
-  
-  else if (!onLick && i2click == HIGH && now - TonLick > LICKTIME/5) {
-    onLick = true;
-    TonLick = now;
-    digitalWriteFast(8, true);
-    digitalWriteFast(17, true);    
+void checkLicks() {
+  if (now - last_lick > LICK_MIN_MS) {
+    //read the touch state from the MPR121
+    Wire.requestFrom(0x5A,2); 
+    byte LSB = Wire.read();
+    byte MSB = Wire.read();
+    uint16_t touched = ((MSB << 8) | LSB); //16bits that make up the touch states
+
+    bool licks_found[2] = {false, false};
+    for (int j = 0; j < 2; j++) {
+      for (int i = j*6+0; i < j*6+6; i++) {  // Check what electrodes were pressed
+        if (touched & (1 << i) && !touchStates[i]) {
+          licks_found[j] = true;
+        }
+        
+        touchStates[i] = touched & (1 << i);
+      }
+    }
+
+    if (active_lick > -1 && !licks_found[active_lick]) {
+      active_lick = -1;
+      last_lick = now;
+      lick_change = true;
+    }
+    else if (active_lick == -1) {
+      for (int j = 1; j >= 0; j--) {
+        if (licks_found[j]) {
+          active_lick = j;
+          last_lick = now;
+          lick_change = true;
+        }
+      }
+    }
   }
 }
 
-// Check whether the solenoids should be turned on or off, then turn them on or off
-// This function forces only one solenoid to be on at a time
-void checkSolenoids() {
-  if (onSolenoidP && now - TonSolenoidP > SOLPTIME && digitalReadFast(16) == LOW && digitalReadFast(12) == HIGH) {
-    onSolenoidP = false;
-    digitalWriteFast(3, false);
-  }
-  else if (onSolenoidM && now - TonSolenoidM > SOLMTIME && digitalReadFast(14) == LOW && digitalReadFast(10) == HIGH) {
-    onSolenoidM = false;
-    digitalWriteFast(5, false);
-  }
-  else if (onSolenoidN && now - TonSolenoidN > SOLNTIME && digitalReadFast(15) == LOW && digitalReadFast(11) == HIGH) {
-    onSolenoidN = false;
-    digitalWriteFast(4, false);
-  }
+// Set the LED and TTL for licking
+void setLicks() {
+  bebox_bnc.digitalWrite(0, LOW);
+  bebox_but.digitalWrite(4, LOW);
+  bebox_but.digitalWrite(5, LOW);
   
-  else if (!onSolenoidP && !onSolenoidM && !onSolenoidN && (digitalReadFast(16) == HIGH || digitalReadFast(12) == LOW)) {
-    onSolenoidP = true;
-    digitalWriteFast(3, true);
-    TonSolenoidP = now;
+  if (active_lick == 0) {
+    bebox_bnc.digitalWrite(0, HIGH);
+    bebox_but.digitalWrite(4, HIGH);
   }
-  else if (!onSolenoidP && !onSolenoidM && !onSolenoidN && (digitalReadFast(14) == HIGH || digitalReadFast(10) == LOW)) {
-    onSolenoidM = true;
-    digitalWriteFast(5, true);
-    TonSolenoidM = now;
-  }
-  else if (!onSolenoidP && !onSolenoidM && !onSolenoidN && (digitalReadFast(15) == HIGH || digitalReadFast(11) == LOW)) {
-    onSolenoidN = true;
-    digitalWriteFast(4, true);
-    TonSolenoidN = now;
+  else if (active_lick == 1) {
+    bebox_bnc.digitalWrite(0, HIGH);
+    bebox_but.digitalWrite(5, HIGH);
   }
 }
 
-
+// ==============================================================
+// The following us only for setting up the lick detector
 void mpr121_setup(void){
 
   set_register(0x5A, ELE_CFG, 0x00); 
