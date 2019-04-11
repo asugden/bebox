@@ -5986,7 +5986,11 @@ distributor RS Components</description>
 <pinref part="U$1" gate="G$1" pin="SCL"/>
 <wire x1="91.44" y1="22.86" x2="99.06" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="Q2" gate="G$1" pin="S"/>
-<wire x1="99.06" y1="22.86" x2="99.06" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="22.86" x2="99.06" y2="0" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="99.06" y1="0" x2="99.06" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="0" x2="99.06" y2="0" width="0.1524" layer="91"/>
+<junction x="99.06" y="0"/>
 </segment>
 </net>
 </nets>
