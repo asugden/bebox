@@ -68,6 +68,15 @@ This box has buttons to control solenoids, as well as two LEDs that represent re
 
 You need 4-conductor 3.5 mm headphone cables to connect BeBox components. They can be any length. Two cables are required for the main 3 boxes, but more need to be used for the encoder or syringe pump. Below are options– you can choose how many to order of each size.
 
+| Part name  | Count | Cost per part | Total cost | Vendor    | Vendor part number | 
+|------------|-------|---------------|------------|-----------|--------------------| 
+| 1' cable   | 1     | 1.50          | 1.50       | Digikey   | CAB-14163-ND       | 
+| 3' cable   | 1     | 2.50          | 2.50       | Digikey   | CAB-14164-ND       | 
+| 6' cable   | 1     | 6.45          | 6.45       | Digikey   | CP-354S-M/M-ND     | 
+| 1' cable   | 1     | 1.89          | 1.89       | Monoprice | 24437              | 
+| 3' cable   | 1     | 2.29          | 2.29       | Monoprice | 18632              | 
+| 6' cable   | 1     | 2.59          | 2.59       | Monoprice | 18633              | 
+
 ## BeBox Capacitance Lickspout components
 
 __CONFIRMED TO WORK__
