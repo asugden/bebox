@@ -83,6 +83,10 @@ __CONFIRMED TO WORK__
 
 There is no PCB here. We simply order a capacitance-sensing board and wire in the 4-conductor headphone cable. One prints a capacitance lickspout, uses an M3 bolt to fasten it to the lickspout holder, solder headers into the capacitance sensing board, heat a wire and shove it into the lickspout, and then attach it to the capacitance sensing board (again with headers, so that the lickspout can be replaced often).
 
+__CONNECT BLACK -> SCL, YELLOW -> SDA, GREEN -> GND, RED -> VIN__
+
+Note that wires are connected differently from dumberboxes.
+
 | Part name          | Count | Cost per part | Total cost | Vendor  | Vendor part number | 
 |--------------------|-------|---------------|------------|---------|--------------------| 
 | capacitance sensor | 1     | 7.95          | 7.95       | Digikey | CP-435107RS-ND     | 
