@@ -1,11 +1,29 @@
-#BEBOX-BOARDS
+#BEBOX
 
-BeBox is a collection of tools used to control and measure animal behavior. It includes four parts: finished 3d designs, the code used to generate them, the Arduino code necessary to run, and a set of PCB files.
+BeBox is a collection of tools for systems neuroscience. It includes three parts: designs for 3d printing, circuits and printed circuit boards (PCBs) for behavioral manipulation, and the Arduino code necessary for those circuits.
+
+Many people are interested in only the 3d designs. In that case, all necessary hardware components are listed in the 3d designs directory. If you are interested in electronics, the BeBox Spritz and the BeBox Syringe Pump can both be used indepent of the BeBox system. The syringe pump can be integrated with BeBox. To start with BeBox, one has to order the boards (links can be found in the pcb directory), which come in orders of 3 from OSH Park, my preferred supplier. Note that BeBox is connected by 4-conductor headphone cables. They can be a bit hard to find. 3-conductor cables will not work.
 
 ##3D DESIGNS:
+__All necessary components are listed in the README in the 3d directory.__
+
 - .stl files  are final output files to be used with 3D printers.
 - .scad files  are files written in OpenSCAD which define the .stl files and can be edited
 - Some designs are made in Fusion 360 and are available upon request.
+
+###bebox
+- bebox bnc bottom.stl  the bottom of a case to hold bnc connectors for bebox
+- bebox bnc top.stl  the top of the case to hold bnc connectors for bebox, which can have magnets inserted to allow stacking
+- bebox button bottom.stl  the bottom of a case to hold bebox buttons, which also reports licks
+- bebox button top.stl  the top of the case to hold bebox buttons
+- bebox button 1.stl  a button cap with the number 1
+- bebox button 2.stl  a button cap with the number 2
+- bebox button 3.stl  a button cap with the number 3
+- bebox button 4.stl  a button cap with the number 4
+- bebox button e.stl  a button cap with the number e, for ensure
+- bebox button q.stl  a button cap with the letter q, for quinine
+- bebox main bottom.stl  the bottom of the case to hold the main bebox board
+- bebox main top.stl  the top of the case to hold the main bebox board
 
 ###lickspout
 __NOTE:__ the lickspouts should be printed with conductive PLA if conductive measurement is desired. The lickspout base should be printed in regular PLA. Conductive PLA plastic can be found at https://www.proto-pasta.com/collections/exotic-composite-pla/products/conductive-pla
@@ -17,6 +35,11 @@ __NOTE:__ the lickspouts should be printed with conductive PLA if conductive mea
 - lickspout water.scad  the file used to create lickspout bitube water.stl. This, too, depends on the curved pipe library
 - utilities.scad  a set of useful functions for OpenSCAD
 
+###syringe-pump
+The syringe pump is designed to tightly fit 20 ml syringes. All necessary mechanical and electrical components are listed in the README of the syringe 
+
+- syringe pump box.stl  a file that defines the enclosure of the syringe pump including the motor and carriage
+- syringe pump carriage.stl  the carriage that rides along bearings to compress the syringe. Note that it should be printed vertically rather than on a flat face.
 
 ###wheel
 - wheel.stl  a pre-made file that can be printed on an average FDM printer with minimal layer heights. This requires two M4 nuts to be embedded and two M4x10 bolts to pinch the axles. I recommend using black PLA for the wheel as other colors may not correctly block the IR light of a beam breaker. We had problems with gray PLA being transparent to IR light.
@@ -34,12 +57,6 @@ __NOTE:__ will be udpated in the near future
 
 - wheel arduino holder.stl  a file to hold two LED beam breakers adjacent to the wheel
 - wheel encoder board holder.stl  a file to allow an arduino to be bolted on to the holder such that it can be held next to the wheel
-
-###syringe-pump
-The syringe pump is designed to tightly fit 20 ml syringes. All necessary mechanical and electrical components are listed in the README of the syringe 
-
-- syringe pump box.stl  a file that defines the enclosure of the syringe pump including the motor and carriage
-- syringe pump carriage.stl  the carriage that rides along bearings to compress the syringe. Note that it should be printed vertically rather than on a flat face.
 
 
 ##ARDUINO CODE:
