@@ -83,7 +83,7 @@ void checkButtons() {
 void setSolenoids() {
   if (now - solenoid_change > SOLENOID_MIN_MS) {
     if (solenoid_on > -1 and !active_bnc[solenoid_on] and !active_but[solenoid_on]) {
-      digitalWrite(7 - solenoid_on, LOW);
+      digitalWrite(6 - solenoid_on, LOW);
       solenoid_on = -1;
       solenoid_change = now;
     }
@@ -92,7 +92,7 @@ void setSolenoids() {
       while (solenoid_on < 0 && i < 4) {
         if (active_bnc[i] || active_but[i]) {
           solenoid_on = i;
-          digitalWrite(7 - solenoid_on, HIGH);
+          digitalWrite(6 - solenoid_on, HIGH);
           solenoid_change = now;
         }
         i++;
