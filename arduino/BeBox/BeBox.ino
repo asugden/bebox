@@ -67,7 +67,7 @@ void loop() {
 void checkBNCs() {
   int mcpio = bebox_bnc.readGPIO();
   for (int i = 1; i < 5; i++) {
-    active_bnc[i] = ((mcpio >> i+1) & 0x1);
+    active_bnc[i-1] = ((mcpio >> i) & 0x1);
   }
 }
 
