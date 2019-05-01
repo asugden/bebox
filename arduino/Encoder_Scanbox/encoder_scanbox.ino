@@ -1,5 +1,7 @@
 #include <Encoder.h>
 
+#define TESTMODE 0
+
 Encoder myEnc(2,3); // pick your pins, reverse for sign flip
 
 void setup() {
@@ -9,6 +11,15 @@ void setup() {
 }
 
 void loop() {
+  if (TESTMODE) {
+    test_serial();
+  }
+  else {
+    run_serial();
+  }
+}
+
+void run_serial() {
   long pos;
   byte *b,m;
 
@@ -25,10 +36,11 @@ void loop() {
       Serial.write((byte *) &pos,4);
     }
   }
+}
 
-  //if(SerialUSB.available()) {
-  //  SerialUSB.read();
-  //  SerialUSB.write((byte *) & pos,4);
-  //}
-  
+void test_serial() {
+  long pos;
+  pos = myEnc.read();
+  Serial.print(pos);
+  Serial.println();
 }
