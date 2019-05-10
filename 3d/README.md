@@ -1,4 +1,5 @@
 ## BeBox components (3 orders of all 3 boards)
+The 3d Fusion 360 files for all of the BeBox pieces can be found here: https://a360.co/2JgHH8c
 
 | Part name    | Count     | Cost per part | Total cost | Vendor   | Vendor part number | 
 |--------------|-----------|---------------|------------|----------|--------------------| 
@@ -30,6 +31,7 @@
 | linear bearing      | 2        | 2.95          | 5.90       | Digikey  | 1528-1287-ND       | 
 
 ## Wheel components
+The 3d Fusion 360 files for the wheel holder can be found here: https://a360.co/2J0girM
 
 | Part name    | Count    | Cost per part | Total cost | Vendor   | Vendor part number | 
 |--------------|----------|---------------|------------|----------|--------------------| 
